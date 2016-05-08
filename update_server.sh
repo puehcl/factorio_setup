@@ -18,10 +18,10 @@ echo "linking dropbox..."
 ln -s /home/$FAC_USER/Dropbox/factorio /home/$FAC_USER/$SERVER_DIR/saves
 
 chown $FAC_USER:$FAC_USER -R /home/$FAC_USER/$SERVER_DIR
-chmod a+rw -R /home/$FAC_USER/$SERVER_DIR
 
 NEWEST_SAVE=$( ls -t /home/$FAC_USER/Dropbox/factorio | head -n 1 )
 echo "starting server with save $NEWEST_SAVE..."
 timeout 5 /home/$FAC_USER/$SERVER_DIR/bin/x64/factorio --start-server $NEWEST_SAVE
+chmod a+rw -R /home/$FAC_USER/$SERVER_DIR
 
 service factorio start
