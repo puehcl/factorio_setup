@@ -12,6 +12,10 @@ rm -R /home/$FAC_USER/$SERVER_DIR
 
 echo "downloading headless server..."
 $SETUP_DIRECTORY/parse_headless.py $HEADLESS_HOMEPAGE | wget -i - -O - --no-check-certificate | tar xzf -
+mv $SERVER_DIR /home/$FAC_USER/$SERVER_DIR
+mkdir /home/$FAC_USER/$SERVER_DIR/saves
+
+chown $FAC_USER:$FAC_USER -R /home/$FAC_USER/$SERVER_DIR
 
 echo "linking dropbox..."
 su $FAC_USER "ln -s /home/$FAC_USER/Dropbox/factorio /home/$FAC_USER/$SERVER_DIR/saves"
