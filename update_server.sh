@@ -13,7 +13,7 @@ rm -R /home/$FAC_USER/$SERVER_DIR
 echo "downloading headless server..."
 $SETUP_DIRECTORY/parse_headless.py $HEADLESS_HOMEPAGE | wget -i - -O /home/$FAC_USER/$TARBALL_NAME --no-check-certificate
 echo "extracting tarball..."
-su $FAC_USER "cd $HOME && tar xzf $TARBALL_NAME"
+su $FAC_USER "cd /home/$FAC_USER && tar xzf $TARBALL_NAME"
 
 echo "linking dropbox..."
 su $FAC_USER "ln -s /home/$FAC_USER/Dropbox/factorio /home/$FAC_USER/$SERVER_DIR/saves"
