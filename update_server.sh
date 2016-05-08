@@ -15,10 +15,10 @@ $SETUP_DIRECTORY/parse_headless.py $HEADLESS_HOMEPAGE | wget -i - -O - --no-chec
 mv $SERVER_DIR /home/$FAC_USER/$SERVER_DIR
 mkdir /home/$FAC_USER/$SERVER_DIR/saves
 
-chown $FAC_USER:$FAC_USER -R /home/$FAC_USER/$SERVER_DIR
-
 echo "linking dropbox..."
-su $FAC_USER "ln -s /home/$FAC_USER/Dropbox/factorio /home/$FAC_USER/$SERVER_DIR/saves"
+ln -s /home/$FAC_USER/Dropbox/factorio /home/$FAC_USER/$SERVER_DIR/saves
+
+chown $FAC_USER:$FAC_USER -R /home/$FAC_USER/$SERVER_DIR
 
 NEWEST_SAVE=$( ls -t /home/$FAC_USER/Dropbox/factorio | head -n 1 )
 echo "starting server with save $NEWEST_SAVE..."
