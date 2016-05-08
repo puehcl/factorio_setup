@@ -8,13 +8,12 @@ HEADLESS_HOMEPAGE=https://www.factorio.com/download-headless/stable
 
 service factorio stop
 
-cd /home/$FAC_USER
-rm -R $SERVER_DIR
+rm -R /home/$FAC_USER/$SERVER_DIR
 
 echo "downloading headless server..."
-$SETUP_DIRECTORY/parse_headless.py $HEADLESS_HOMEPAGE | wget -i - -O $TARBALL_NAME --no-check-certificate
+$SETUP_DIRECTORY/parse_headless.py $HEADLESS_HOMEPAGE | wget -i - -O /home/$FAC_USER/$TARBALL_NAME --no-check-certificate
 echo "extracting tarball..."
-su $FAC_USER "tar xzf $TARBALL_NAME"
+su $FAC_USER "tar xzf /home/$FAC_USER/$TARBALL_NAME"
 
 echo "linking dropbox..."
 su $FAC_USER "ln -s /home/$FAC_USER/Dropbox/factorio /home/$FAC_USER/$SERVER_DIR/saves"
