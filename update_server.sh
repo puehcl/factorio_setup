@@ -6,10 +6,6 @@ SERVER_DIR=factorio
 TARBALL_NAME=factorio.tar.gz
 HEADLESS_HOMEPAGE=https://www.factorio.com/download-headless/stable
 
-function as_user() {
-    su factorio $1
-}
-
 service factorio stop
 
 cd /home/$USER
